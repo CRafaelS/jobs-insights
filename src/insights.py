@@ -58,7 +58,13 @@ def get_unique_industries(path):
     list
         List of unique industries
     """
-    return []
+    jobs = read(path)
+    listindustries = []
+
+    for job in jobs:
+        if job["industry"] not in listindustries and len(job["industry"]) != 0:
+            listindustries.append(job["industry"])
+    return listindustries
 
 
 def filter_by_industry(jobs, industry):
